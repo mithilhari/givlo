@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/app_bg"
+    android:orientation="vertical"
+    android:padding="@dimen/padding_location" >
+
+    <ImageView
+        android:id="@+id/alert_ic"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:src="@drawable/alert_icon_lg" />
+
+    <givlo.android.com.givlo.customviews.GothamBookTextView
+        android:id="@+id/title_textview"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="@dimen/padding_location"
+        android:text="@string/location_unavailable"
+        android:textColor="#000000"
+        android:textSize="@dimen/text_normal"
+        android:textStyle="bold" />
+
+    <givlo.android.com.givlo.customviews.GothamBookTextView
+        android:id="@+id/desc_textview"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="@dimen/padding_location_desc"
+        android:text="@string/we_are_unable_to_locate_you"
+        android:textColor="@color/grey"
+        android:textSize="@dimen/text_location_normal" />
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:orientation="vertical" >
+
+        <Button
+            android:id="@+id/set_location_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/padding_location"
+            android:background="@drawable/dialog_button_background"
+            android:gravity="center"
+            android:padding="@dimen/padding_location_desc"
+            android:visibility="gone"
+            android:text="@string/set_location_manually"
+            android:textColor="@color/orange"
+            android:textSize="@dimen/text_11" />
+
+        <Button
+            android:id="@+id/open_settings_button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/padding_location"
+            android:background="@drawable/dialog_button_background"
+            android:gravity="center"
+            android:padding="@dimen/padding_location_desc"
+            android:text="TURN GPS ON"
+            android:textColor="@color/grey"
+            android:textSize="@dimen/text_11" />
+    </LinearLayout>
+
+</LinearLayout>

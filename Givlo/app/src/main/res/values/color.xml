@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <color name="orange">#F38F31</color>
+    <color name="orange_light">#ffc273</color>
+    <color name="orange_dark">#ff6600</color>
+    <color name="app_orange">#eb471e</color>
+    <color name="charcoal_black">#302f2f</color>
+
+    <color name="grey_line">#929292</color>
+    <color name="green">#8CC640</color>
+    <color name="white">#FFFFFF</color>
+    <color name="grey">#888888</color>
+     <color name="app_bg">#ffffff</color>
+    <!--<color name="app_bg">#F4F7F8</color>-->
+    <color name="action_bar_bg">#fafafa</color>
+    <color name="ash_line">#c9c9c9</color>
+    <color name="status_line_color">#87c234</color>
+
+</resources>
