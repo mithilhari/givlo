@@ -1,0 +1,28 @@
+<resources>
+
+    <dimen name="text_small">11sp</dimen>
+    <dimen name="text_normal">15sp</dimen>
+    <dimen name="text_large">20sp</dimen>
+    <dimen name="textsize_xlarge">30sp</dimen>
+    <dimen name="activity_horizontal_margin">14dp</dimen>
+    <dimen name="padding_xlarge">20dp</dimen>
+    <dimen name="padding_large">8dp</dimen>
+    <dimen name="padding_small">4dp</dimen>
+    <dimen name="notification_count_circle_width">15dp</dimen>
+    <dimen name="chefname_profile_textsize">26sp</dimen>
+    <dimen name="padding_35dp">35dp</dimen>
+
+    <!-- Location alert screen items -->
+    <dimen name="padding_location">20dp</dimen>
+    <dimen name="padding_location_desc">10dp</dimen>
+    <dimen name="text_location_heading">20dp</dimen>
+    <dimen name="text_location_normal">15dp</dimen>
+    <dimen name="text_14">14dp</dimen>
+    <dimen name="text_13">13dp</dimen>
+    <dimen name="text_12">12dp</dimen>
+    <dimen name="text_11">11dp</dimen>
+    <dimen name="text_16">16dp</dimen>
+    <dimen name="splash_margin">60dp</dimen>
+    <dimen name="activity_vertical_margin">16dp</dimen>
+
+</resources>

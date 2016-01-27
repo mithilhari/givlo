@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_alignParentLeft="true"
+    android:layout_marginRight="@dimen/padding_location"
+    android:layout_toLeftOf="@+id/more"
+    android:orientation="vertical"
+    android:padding="@dimen/padding_location">
+
+    <givlo.android.com.givlo.customviews.GothamBookTextView
+        android:id="@+id/ngo_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="left"
+        android:textColor="@color/app_orange"
+        android:textSize="@dimen/text_normal"
+        android:textStyle="bold" />
+
+    <givlo.android.com.givlo.customviews.GothamBookTextView
+        android:id="@+id/ngo_address"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="left"
+        android:layout_marginTop="@dimen/padding_location_desc"
+        android:ellipsize="end"
+        android:maxLines="2"
+        android:textColor="@color/grey"
+        android:textSize="@dimen/text_location_normal" />
+    <givlo.android.com.givlo.customviews.GothamBookTextView
+        android:id="@+id/ngo_phone"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="left"
+        android:layout_marginTop="@dimen/padding_location_desc"
+        android:ellipsize="end"
+        android:maxLines="2"
+        android:textColor="@color/grey"
+        android:textSize="@dimen/text_location_normal" />
+    <givlo.android.com.givlo.customviews.GothamBookTextView
+        android:id="@+id/ngo_email"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="left"
+        android:layout_marginTop="@dimen/padding_location_desc"
+        android:ellipsize="end"
+        android:maxLines="2"
+        android:textColor="@color/grey"
+        android:textSize="@dimen/text_location_normal" />
+
+</LinearLayout>
+

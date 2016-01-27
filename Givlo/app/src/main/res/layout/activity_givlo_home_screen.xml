@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="givlo.android.com.givlo.GivloHomeScreenActivity">
+    tools:context=".ui.GivloHomeScreenActivity">
 
     <fragment
         android:id="@+id/map"
@@ -11,10 +11,213 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
 
+    <LinearLayout
+        android:id="@+id/search_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_margin="7dp"
+        android:background="#ffffff"
+        android:orientation="horizontal"
+        android:padding="@dimen/padding_small">
+
+        <ImageView
+            android:id="@+id/search_set_delivery_location"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="@dimen/text_14"
+            android:layout_marginRight="@dimen/padding_location"
+            android:layout_toLeftOf="@+id/search_set_delivery_location_layout1"
+            android:layout_toRightOf="@+id/search_set_delivery_location_layout"
+            android:paddingTop="@dimen/padding_small"
+            android:src="@drawable/search_icon" />
+
+        <LinearLayout
+            android:id="@+id/search_set_delivery_location_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/map_search_textview"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:text="SET ADDRESS"
+                android:textColor="@color/orange"
+                android:textSize="@dimen/text_13"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/search_address_textview"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ellipsize="end"
+                android:gravity="center_horizontal"
+                android:maxLines="1"
+                android:paddingBottom="@dimen/padding_small"
+                android:singleLine="true"
+                android:textColor="@color/grey_line"
+                android:text="@string/drop_a_pin"
+                android:textSize="@dimen/text_14" />
+        </LinearLayout>
+
+        <ImageView
+            android:id="@+id/search_set_delivery_location1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="@dimen/padding_location"
+            android:layout_marginRight="@dimen/text_14"
+            android:paddingTop="@dimen/padding_small"
+            android:src="@drawable/search_icon"
+            android:visibility="invisible" />
+    </LinearLayout>
+
     <ImageView
         android:id="@+id/map_pin"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"
         android:src="@drawable/map_pin" />
+
+    <LinearLayout
+        android:id="@+id/select_category_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/pick_location"
+        android:layout_alignParentBottom="true"
+        android:background="@color/app_bg"
+        android:orientation="vertical"
+        android:visibility="gone">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="7dp"
+            android:orientation="horizontal"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:padding="@dimen/activity_horizontal_margin"
+            android:weightSum="5">
+
+            <CheckBox
+                android:id="@+id/clothes"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_weight="1"
+                android:button="@drawable/clothes"
+                android:foregroundGravity="center"
+                android:gravity="center" />
+
+            <CheckBox
+                android:id="@+id/books"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_weight="1"
+                android:button="@drawable/books"
+                android:gravity="center" />
+
+            <CheckBox
+                android:id="@+id/shoes"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_weight="1"
+                android:button="@drawable/shoes"
+                android:gravity="center" />
+
+            <CheckBox
+                android:id="@+id/donation"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_weight="1"
+                android:button="@drawable/donations"
+                android:gravity="center" />
+
+            <CheckBox
+                android:id="@+id/blankets"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_weight="1"
+                android:button="@drawable/blankets"
+                android:gravity="center" />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/address_divider_textView9"
+            android:layout_width="fill_parent"
+            android:layout_height="0.5dp"
+            android:background="@color/white" />
+
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            android:weightSum="2">
+
+            <Button
+                android:id="@+id/cancel"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_weight="1"
+                android:background="@color/charcoal_black"
+                android:gravity="center"
+                android:padding="25dp"
+                android:text="CANCEL"
+                android:textColor="@color/white"
+                android:textSize="@dimen/text_16"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/divider_textView9"
+                android:layout_width="0.5dp"
+                android:layout_weight="0"
+                android:layout_height="wrap_content"
+                android:background="@color/white" />
+
+            <Button
+                android:id="@+id/confirm"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_weight="1"
+                android:background="@color/charcoal_black"
+                android:gravity="center"
+                android:padding="25dp"
+                android:text="CONFIRM"
+                android:textColor="@color/white"
+                android:textSize="@dimen/text_16"
+                android:textStyle="bold" />
+        </LinearLayout>
+    </LinearLayout>
+
+
+    <Button
+        android:id="@+id/pick_location"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:background="@color/charcoal_black"
+        android:gravity="center"
+        android:padding="25dp"
+        android:text="DONATE NOW"
+        android:textColor="@color/white"
+        android:textSize="@dimen/text_16"
+        android:textStyle="bold"
+        android:visibility="visible"/>
 </RelativeLayout>
