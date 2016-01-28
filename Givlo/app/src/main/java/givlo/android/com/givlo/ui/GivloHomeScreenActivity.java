@@ -13,6 +13,7 @@ import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.LinearLayout;
+import android.widget.ProgressBar;
 import android.widget.RadioButton;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -23,39 +24,49 @@ import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.CameraPosition;
 import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.MarkerOptions;
+
+import java.util.ArrayList;
 
 import givlo.android.com.givlo.R;
+import givlo.android.com.givlo.beans.NGODataBean;
+import givlo.android.com.givlo.data.NGOData;
 import givlo.android.com.givlo.data.SharedPreferencesData;
 import givlo.android.com.givlo.utils.InternetConnectivity;
 
 public class GivloHomeScreenActivity extends AppCompatActivity implements OnMapReadyCallback {
 
     private GoogleMap mMap;
-    private Button mPickALocationButton,mCancelButton,mConfirmButton;
+    private Button mPickALocationButton, mCancelButton, mConfirmButton;
     private SharedPreferencesData sharedPreferencesData;
     private Handler fetchAddressHandler;
     private Runnable notification;
     private String mLocationText;
     private Double latitude, longitude;
-    private TextView  searchAddressTextView;
-    private CheckBox mClothes,mBooks,mShoes,mDonations,mBlankets;
+    private TextView searchAddressTextView;
+    private CheckBox mClothes, mBooks, mShoes, mDonations, mBlankets;
     private LinearLayout mRG;
+    private ArrayList<NGODataBean> mNgosArrayList;
+    private ProgressBar mProgressBar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_givlo_home_screen);
         mPickALocationButton = (Button) findViewById(R.id.pick_location);
-        mCancelButton= (Button) findViewById(R.id.cancel);
-        mConfirmButton= (Button) findViewById(R.id.confirm);
+        mCancelButton = (Button) findViewById(R.id.cancel);
+        mConfirmButton = (Button) findViewById(R.id.confirm);
         mRG = (LinearLayout) findViewById(R.id.select_category_layout);
         mClothes = (CheckBox) findViewById(R.id.clothes);
         mBooks = (CheckBox) findViewById(R.id.books);
         mShoes = (CheckBox) findViewById(R.id.shoes);
         mDonations = (CheckBox) findViewById(R.id.donation);
         mBlankets = (CheckBox) findViewById(R.id.blankets);
+        mProgressBar = (ProgressBar) findViewById(R.id.progressBar);
         searchAddressTextView = (TextView) findViewById(R.id.search_address_textview);
         sharedPreferencesData = new SharedPreferencesData();
+        mNgosArrayList = new ArrayList<>();
+        mNgosArrayList.addAll(new NGOData().getNgoDetails());
         fetchAddressHandler = new Handler();
         // Obtain the SupportMapFragment and get notified when the map is ready to be used.
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
@@ -72,7 +83,7 @@ public class GivloHomeScreenActivity extends AppCompatActivity implements OnMapR
         mBooks.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                if(isChecked&&buttonView.isPressed()){
+                if (isChecked && buttonView.isPressed()) {
                 }
 
             }
@@ -80,7 +91,7 @@ public class GivloHomeScreenActivity extends AppCompatActivity implements OnMapR
         mShoes.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                if(isChecked&&buttonView.isPressed()){
+                if (isChecked && buttonView.isPressed()) {
                 }
 
             }
@@ -88,7 +99,7 @@ public class GivloHomeScreenActivity extends AppCompatActivity implements OnMapR
         mDonations.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                if(isChecked&&buttonView.isPressed()){
+                if (isChecked && buttonView.isPressed()) {
                 }
 
             }
@@ -96,7 +107,7 @@ public class GivloHomeScreenActivity extends AppCompatActivity implements OnMapR
         mBlankets.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                if(isChecked&&buttonView.isPressed()){
+                if (isChecked && buttonView.isPressed()) {
                 }
 
             }
@@ -106,6 +117,12 @@ public class GivloHomeScreenActivity extends AppCompatActivity implements OnMapR
             public void onClick(View v) {
                 if (mLocationText != null && mLocationText.length() > 0) {
                     mRG.setVisibility(View.VISIBLE);
+                    mMap.clear();
+                    for (int i = 0; i < mNgosArrayList.size(); i++) {
+                        mMap.addMarker(new MarkerOptions()
+                                .position(new LatLng(Double.parseDouble(mNgosArrayList.get(i).getNgoLatitude()), Double.parseDouble(mNgosArrayList.get(i).getNgoLongitude())))
+                                .title("" + mNgosArrayList.get(i).getNgoName()));
+                    }
                     mPickALocationButton.setVisibility(View.GONE);
                 } else {
                     Toast.makeText(GivloHomeScreenActivity.this, "Unable to fetch location!!", Toast.LENGTH_SHORT).show();
@@ -115,22 +132,24 @@ public class GivloHomeScreenActivity extends AppCompatActivity implements OnMapR
         mCancelButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                    mRG.setVisibility(View.GONE);
-                    mPickALocationButton.setVisibility(View.VISIBLE);
+                mRG.setVisibility(View.GONE);
+                mMap.clear();
+                mPickALocationButton.setVisibility(View.VISIBLE);
             }
         });
         mConfirmButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 mRG.setVisibility(View.GONE);
+                mMap.clear();
                 mPickALocationButton.setVisibility(View.VISIBLE);
                 goToNgosListScreen();
             }
         });
     }
 
-    public void goToNgosListScreen(){
-        Intent goToNgosListScreen=new Intent(GivloHomeScreenActivity.this,NgosListActivity.class);
+    public void goToNgosListScreen() {
+        Intent goToNgosListScreen = new Intent(GivloHomeScreenActivity.this, NgosListActivity.class);
         startActivity(goToNgosListScreen);
     }
 
@@ -156,8 +175,8 @@ public class GivloHomeScreenActivity extends AppCompatActivity implements OnMapR
 
             @Override
             public void onCameraChange(final CameraPosition position) {
-                mMap.clear();
                 fetchAddressHandler.removeCallbacks(notification);
+                mProgressBar.setVisibility(View.VISIBLE);
                 if (isInternetAvailable()) {
                     notification = new Runnable() {
                         public void run() {
@@ -168,6 +187,7 @@ public class GivloHomeScreenActivity extends AppCompatActivity implements OnMapR
                             latitude = position.target.latitude;
                             longitude = position.target.longitude;
                             searchAddressTextView.setText(mLocationText);
+                            mProgressBar.setVisibility(View.GONE);
                         }
                     };
 
@@ -178,19 +198,39 @@ public class GivloHomeScreenActivity extends AppCompatActivity implements OnMapR
     }
 
     private void moveToCurrentLocation() {
-        Handler handler = new Handler();
-        handler.postDelayed(new Runnable() {
-            public void run() {
-                if (mMap != null) {
-                    try {
-                        mMap.moveCamera(CameraUpdateFactory.newLatLng(new LatLng(mMap.getMyLocation().getLatitude(), mMap.getMyLocation().getLongitude())));
+        mProgressBar.setVisibility(View.VISIBLE);
+//        Handler handler = new Handler();
+//        handler.postDelayed(new Runnable() {
+//            public void run() {
+//                if (mMap != null) {
+//                    try {
+//                        mMap.moveCamera(CameraUpdateFactory.newLatLng(new LatLng(mMap.getMyLocation().getLatitude(), mMap.getMyLocation().getLongitude())));
+                        try {
+                            LatLng currentLatng = new LatLng(
+                                    Double.parseDouble(sharedPreferencesData
+                                            .retreiveValueFromSharedPreference(
+                                                    getApplicationContext(),
+                                                    sharedPreferencesData.APP_LATITUDE)),
+                                    Double.parseDouble(sharedPreferencesData
+                                            .retreiveValueFromSharedPreference(
+                                                    getApplicationContext(),
+                                                    sharedPreferencesData.APP_LONGITUDE)));
+                            mMap
+                                    .moveCamera(CameraUpdateFactory.newLatLng(currentLatng));
+
+
+                        } catch (NullPointerException ne) {
+                            ne.printStackTrace();
+                        } catch (Exception e) {
+                            e.printStackTrace();
+                        }
                         mMap.animateCamera(CameraUpdateFactory.zoomTo(12));
-                    } catch (Exception e) {
-                        Log.e("Location error", ": " + e.getLocalizedMessage());
-                    }
-                }
-            }
-        }, 5000);
+//                    } catch (Exception e) {
+//                        Log.e("Location error", ": " + e.getLocalizedMessage());
+//                    }
+//                }
+//            }
+//        }, 5000);
     }
 
     public boolean isInternetAvailable() {

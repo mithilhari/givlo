@@ -63,6 +63,8 @@ public class NgoAdapter extends BaseAdapter {
                     .findViewById(R.id.ngo_email);
             holder.mNgoPhone = (TextView) convertView
                     .findViewById(R.id.ngo_phone);
+            holder.mNgoWebsite = (TextView) convertView
+                    .findViewById(R.id.ngo_website);
 
             convertView.setTag(holder);
         } else {
@@ -95,6 +97,13 @@ public class NgoAdapter extends BaseAdapter {
         }else{
             holder.mNgoPhone.setVisibility(View.GONE);
         }
+        if(mNgoList.get(position).getmNgoWebsite()!=null&&mNgoList.get(position).getmNgoWebsite().length()>0){
+            holder.mNgoWebsite.setVisibility(View.VISIBLE);
+            String text = "<font color=#3F51B5>"+mNgoList.get(position).getmNgoWebsite()+"</font>";
+            holder.mNgoWebsite.setText(Html.fromHtml(text));
+        }else{
+            holder.mNgoWebsite.setVisibility(View.GONE);
+        }
         holder.mNgoPhone.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -107,15 +116,32 @@ public class NgoAdapter extends BaseAdapter {
                 goToEmailScreen(position);
             }
         });
+        holder.mNgoWebsite.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                goTOWebScreen(position);
+            }
+        });
 
         return convertView;
     }
+
+    public void goTOWebScreen(int position){
+        if(mNgoList.get(position).getmNgoWebsite()!=null&&mNgoList.get(position).getmNgoWebsite().length()>0){
+            Intent i = new Intent(Intent.ACTION_VIEW);
+            i.setData(Uri.parse(mNgoList.get(position).getmNgoWebsite()));
+            context.startActivity(i);
+        }else{
+            Toast.makeText(context,"No phone number",Toast.LENGTH_SHORT).show();
+        }
+    }
+
     public void goTOCallScreen(int position){
         if(mNgoList.get(position).getNgoNumber()!=null&&mNgoList.get(position).getNgoNumber().length()>0){
             Intent intent = new Intent(Intent.ACTION_CALL, Uri.parse("tel:" + mNgoList.get(position).getNgoNumber()));
             context.startActivity(intent);
         }else{
-            Toast.makeText(context,"No phone number",Toast.LENGTH_SHORT).show();
+            Toast.makeText(context,"No web site url",Toast.LENGTH_SHORT).show();
         }
     }
     public void goToEmailScreen(int position){
@@ -133,7 +159,7 @@ public class NgoAdapter extends BaseAdapter {
     }
 
     public class Holder {
-        public TextView mNgoName, mNgoAddress,mNgoPhone,mNgoEmail;
+        public TextView mNgoName, mNgoAddress,mNgoPhone,mNgoEmail,mNgoWebsite;
     }
 
 }

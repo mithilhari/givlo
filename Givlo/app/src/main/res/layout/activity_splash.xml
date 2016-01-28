@@ -11,7 +11,7 @@
         android:layout_gravity="center"
         android:layout_marginTop="@dimen/padding_location_desc"
         android:textColor="@color/white"
-        android:text="Givlo"
+        android:text="GIVLO"
         android:textSize="80dp" />
 
 </FrameLayout>

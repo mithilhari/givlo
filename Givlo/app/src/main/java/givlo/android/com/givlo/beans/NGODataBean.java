@@ -8,7 +8,22 @@ public class NGODataBean {
 
     public int ngoId;
 
-    public String ngoName,ngoAddress,ngoEmail,ngoNumber,ngoLatitude,ngoLongitude;
+    public String ngoName;
+    public String ngoAddress;
+    public String ngoEmail;
+    public String ngoNumber;
+    public String ngoLatitude;
+    public String ngoLongitude;
+
+    public String getmNgoWebsite() {
+        return mNgoWebsite;
+    }
+
+    public void setmNgoWebsite(String mNgoWebsite) {
+        this.mNgoWebsite = mNgoWebsite;
+    }
+
+    public String mNgoWebsite;
     public String getNgoName() {
         return ngoName;
     }

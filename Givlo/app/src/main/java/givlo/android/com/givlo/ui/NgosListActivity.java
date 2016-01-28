@@ -9,6 +9,7 @@ import java.util.ArrayList;
 import givlo.android.com.givlo.R;
 import givlo.android.com.givlo.adapter.NgoAdapter;
 import givlo.android.com.givlo.beans.NGODataBean;
+import givlo.android.com.givlo.data.NGOData;
 
 public class NgosListActivity extends AppCompatActivity {
     private ListView mNgosListView;
@@ -21,16 +22,7 @@ public class NgosListActivity extends AppCompatActivity {
         setContentView(R.layout.activity_ngos_list);
         mNgosListView = (ListView)findViewById(R.id.listView);
         mNgosArrayList=new ArrayList<>();
-        for(int i=0;i<11;i++){
-            NGODataBean bean=new NGODataBean();
-            bean.setNgoId(i);
-            bean.setNgoName("Orphanage homes");
-            bean.setNgoAddress("Flat no: 203, SRT 390, Sanath Nagar, Hyderabad - 500018");
-            bean.setNgoEmail("07it.jbrec@gmail.com");
-            bean.setNgoNumber("07075254213");
-            mNgosArrayList.add(bean);
-
-        }
+        mNgosArrayList.addAll(new NGOData().getNgoDetails());
         mNgoAdapter=new NgoAdapter(NgosListActivity.this,mNgosArrayList);
         mNgosListView.setAdapter(mNgoAdapter);
     }

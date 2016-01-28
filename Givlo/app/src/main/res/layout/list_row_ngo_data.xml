@@ -47,6 +47,16 @@
         android:maxLines="2"
         android:textColor="@color/grey"
         android:textSize="@dimen/text_location_normal" />
+    <givlo.android.com.givlo.customviews.GothamBookTextView
+        android:id="@+id/ngo_website"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="left"
+        android:layout_marginTop="@dimen/padding_location_desc"
+        android:ellipsize="end"
+        android:maxLines="2"
+        android:textColor="@color/grey"
+        android:textSize="@dimen/text_location_normal" />
 
 </LinearLayout>
 

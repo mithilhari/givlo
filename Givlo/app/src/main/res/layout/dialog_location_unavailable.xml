@@ -61,7 +61,7 @@
             android:background="@drawable/dialog_button_background"
             android:gravity="center"
             android:padding="@dimen/padding_location_desc"
-            android:text="TURN GPS ON"
+            android:text="Turn GPS On"
             android:textColor="@color/grey"
             android:textSize="@dimen/text_11" />
     </LinearLayout>
