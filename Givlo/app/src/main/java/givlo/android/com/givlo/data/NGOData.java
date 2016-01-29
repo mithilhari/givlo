@@ -37,8 +37,8 @@ public class NGOData {
         dataBean.setNgoAddress("Sphoorti Foundation 536, BN Reddy Nagar Colony, Hyderabad");
         dataBean.setNgoEmail("");
         dataBean.setNgoNumber("9966999007");
-        dataBean.setNgoLatitude("17.5015328");
-        dataBean.setNgoLongitude("78.3652884");
+        dataBean.setNgoLatitude("17.5220325");
+        dataBean.setNgoLongitude("78.4144664");
         dataBean.setmNgoWebsite("http://vcare.org.in");
         mNgoDataBeanArraylist.add(dataBean);
         dataBean=new NGODataBean();
@@ -47,8 +47,8 @@ public class NGOData {
         dataBean.setNgoAddress("SP Road, Begumpet, Near Meteorological Center, Hyderabad");
         dataBean.setNgoEmail("");
         dataBean.setNgoNumber("8886563252");
-        dataBean.setNgoLatitude("17.4828683");
-        dataBean.setNgoLongitude("78.4124953");
+        dataBean.setNgoLatitude("17.4339507");
+        dataBean.setNgoLongitude("78.4673711");
         dataBean.setmNgoWebsite("");
         mNgoDataBeanArraylist.add(dataBean);
         dataBean=new NGODataBean();
@@ -57,8 +57,8 @@ public class NGOData {
         dataBean.setNgoAddress("1st Floor, Gowra Trinity,, Chiran Fort Lane, Begumpet, Hyderabad");
         dataBean.setNgoEmail("");
         dataBean.setNgoNumber("9948097127");
-        dataBean.setNgoLatitude("17.4620732");
-        dataBean.setNgoLongitude("78.4157568");
+        dataBean.setNgoLatitude("17.4398664");
+        dataBean.setNgoLongitude("78.4725397");
         dataBean.setmNgoWebsite("");
         mNgoDataBeanArraylist.add(dataBean);
         dataBean=new NGODataBean();
@@ -67,8 +67,8 @@ public class NGOData {
         dataBean.setNgoAddress("Jawaharlal Nehru Rd, Troop Bazaar, Abids, Hyderabad");
         dataBean.setNgoEmail("");
         dataBean.setNgoNumber("9000155660");
-        dataBean.setNgoLatitude("17.3867549");
-        dataBean.setNgoLongitude("78.4415902");
+        dataBean.setNgoLatitude("17.38676");
+        dataBean.setNgoLongitude("78.4744204");
         dataBean.setmNgoWebsite("http://youngistaanfoundation.org");
         mNgoDataBeanArraylist.add(dataBean);
         dataBean=new NGODataBean();
@@ -76,9 +76,9 @@ public class NGOData {
         dataBean.setNgoName("Alishbaa");
         dataBean.setNgoAddress("Toli Chowki, Hyderabad");
         dataBean.setNgoEmail("");
-        dataBean.setNgoNumber("88016 22797");
-        dataBean.setNgoLatitude("17.3867549");
-        dataBean.setNgoLongitude("78.4415902");
+        dataBean.setNgoNumber("8801622797");
+        dataBean.setNgoLatitude("17.3962921");
+        dataBean.setNgoLongitude("78.4112453");
         dataBean.setmNgoWebsite("http://alishbaa.com");
         mNgoDataBeanArraylist.add(dataBean);
         dataBean=new NGODataBean();
@@ -87,8 +87,8 @@ public class NGOData {
         dataBean.setNgoAddress("17-duplex, Hig Aphb, K Pally, Hyderabad");
         dataBean.setNgoEmail("");
         dataBean.setNgoNumber("04023055904");
-        dataBean.setNgoLatitude("17.3867549");
-        dataBean.setNgoLongitude("78.4415902");
+        dataBean.setNgoLatitude("17.4828108");
+        dataBean.setNgoLongitude("78.4062685");
         dataBean.setmNgoWebsite("");
         mNgoDataBeanArraylist.add(dataBean);
         dataBean=new NGODataBean();
@@ -107,8 +107,8 @@ public class NGOData {
         dataBean.setNgoAddress("Hill Ridge Springs, Gachibowli, Hyderabad");
         dataBean.setNgoEmail("");
         dataBean.setNgoNumber("9740533370");
-        dataBean.setNgoLatitude("17.4411223");
-        dataBean.setNgoLongitude("78.3301705");
+        dataBean.setNgoLatitude("17.441195");
+        dataBean.setNgoLongitude("78.2951491");
         dataBean.setmNgoWebsite("http://sochnet.com");
         mNgoDataBeanArraylist.add(dataBean);
         dataBean=new NGODataBean();
@@ -117,8 +117,8 @@ public class NGOData {
         dataBean.setNgoAddress("Sri Krishna Goseva Mandal, Narsingi Village, Kokapet, Hyderabad");
         dataBean.setNgoEmail("");
         dataBean.setNgoNumber("9391436888");
-        dataBean.setNgoLatitude("17.4411223");
-        dataBean.setNgoLongitude("78.3301705");
+        dataBean.setNgoLatitude("17.4590298");
+        dataBean.setNgoLongitude("78.298621");
         dataBean.setmNgoWebsite("http://akshayapatra.org");
         mNgoDataBeanArraylist.add(dataBean);
         dataBean=new NGODataBean();
@@ -127,8 +127,8 @@ public class NGOData {
         dataBean.setNgoAddress("G-16, Pallavi Apartment, Vinayak Nagar, Hyderabad");
         dataBean.setNgoEmail("");
         dataBean.setNgoNumber("04023870799");
-        dataBean.setNgoLatitude("17.4411223");
-        dataBean.setNgoLongitude("78.3301705");
+        dataBean.setNgoLatitude("17.4820565");
+        dataBean.setNgoLongitude("78.2782743");
         dataBean.setmNgoWebsite("http://sadhanango.org");
         mNgoDataBeanArraylist.add(dataBean);
 
