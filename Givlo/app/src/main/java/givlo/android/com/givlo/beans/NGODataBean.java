@@ -6,7 +6,7 @@ package givlo.android.com.givlo.beans;
 public class NGODataBean {
 
 
-    public int ngoId;
+    public long ngoId;
 
     public String ngoName;
     public String ngoAddress;
@@ -14,6 +14,16 @@ public class NGODataBean {
     public String ngoNumber;
     public String ngoLatitude;
     public String ngoLongitude;
+
+    public String getNgoCategory() {
+        return ngoCategory;
+    }
+
+    public void setNgoCategory(String ngoCategory) {
+        this.ngoCategory = ngoCategory;
+    }
+
+    public String ngoCategory;
 
     public String getmNgoWebsite() {
         return mNgoWebsite;
@@ -32,11 +42,11 @@ public class NGODataBean {
         this.ngoName = ngoName;
     }
 
-    public int getNgoId() {
+    public long getNgoId() {
         return ngoId;
     }
 
-    public void setNgoId(int ngoId) {
+    public void setNgoId(long ngoId) {
         this.ngoId = ngoId;
     }
 

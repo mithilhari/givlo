@@ -30,6 +30,7 @@ import java.util.ArrayList;
 
 import givlo.android.com.givlo.R;
 import givlo.android.com.givlo.beans.NGODataBean;
+import givlo.android.com.givlo.data.DBManager;
 import givlo.android.com.givlo.data.NGOData;
 import givlo.android.com.givlo.data.SharedPreferencesData;
 import givlo.android.com.givlo.utils.InternetConnectivity;
@@ -66,7 +67,7 @@ public class GivloHomeScreenActivity extends AppCompatActivity implements OnMapR
         searchAddressTextView = (TextView) findViewById(R.id.search_address_textview);
         sharedPreferencesData = new SharedPreferencesData();
         mNgosArrayList = new ArrayList<>();
-        mNgosArrayList.addAll(new NGOData().getNgoDetails());
+        mNgosArrayList.addAll(new DBManager(GivloHomeScreenActivity.this).getLatitudes());
         fetchAddressHandler = new Handler();
         // Obtain the SupportMapFragment and get notified when the map is ready to be used.
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()

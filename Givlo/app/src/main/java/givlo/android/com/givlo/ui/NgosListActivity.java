@@ -9,6 +9,7 @@ import java.util.ArrayList;
 import givlo.android.com.givlo.R;
 import givlo.android.com.givlo.adapter.NgoAdapter;
 import givlo.android.com.givlo.beans.NGODataBean;
+import givlo.android.com.givlo.data.DBManager;
 import givlo.android.com.givlo.data.NGOData;
 
 public class NgosListActivity extends AppCompatActivity {
@@ -20,10 +21,11 @@ public class NgosListActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_ngos_list);
-        mNgosListView = (ListView)findViewById(R.id.listView);
-        mNgosArrayList=new ArrayList<>();
-        mNgosArrayList.addAll(new NGOData().getNgoDetails());
-        mNgoAdapter=new NgoAdapter(NgosListActivity.this,mNgosArrayList);
+        mNgosListView = (ListView) findViewById(R.id.listView);
+        mNgosArrayList = new ArrayList<>();
+//        mNgosArrayList.addAll(new NGOData().getNgoDetails());
+        mNgosArrayList.addAll(new DBManager(NgosListActivity.this).getLatitudes());
+        mNgoAdapter = new NgoAdapter(NgosListActivity.this, mNgosArrayList);
         mNgosListView.setAdapter(mNgoAdapter);
     }
 }
